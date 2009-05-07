@@ -1,0 +1,196 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>NetReflector.Test</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Exortech.NetReflector.Test</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <Name>nunit.framework</Name>
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\NetReflectorPluginTest\NetReflectorPluginTest.csproj">
+      <Name>NetReflectorPluginTest</Name>
+      <Project>{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\NetReflector\NetReflector.csproj">
+      <Name>NetReflector</Name>
+      <Project>{6F47E988-250D-4B42-9278-07F18B3704BE}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\ReflectorPropertyTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\XmlDocumentationGeneratorTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Generators\XsdGeneratorTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetReflectorTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetReflectorTypeTableTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetReflectorTypeTableUnusedNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\ArrayTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\CollectionTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\ElementTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\EnumTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\HashTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\IgnoreNonReflectorTypeTestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\ITestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\TestClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\TestInnerClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\TestInstantiator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\TestSubClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resources\XmlDocumentResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\DefaultSerialiserFactoryTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\XmlArraySerialiserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\XmlCollectionSerialiserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\XmlDictionarySerialiserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\XmlMemberSerialiserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialisers\XmlTypeSerialiserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Util\DefaultInstantiatorTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Util\ReflectorMemberTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Util\XmlElementListTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

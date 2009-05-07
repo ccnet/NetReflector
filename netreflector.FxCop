@@ -1,0 +1,1335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.312" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>False</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.30\Xml\FxCopReport.Xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="False" />
+  <PermitAnalysis>True</PermitAnalysis>
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>100</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>10</RuleExceptionsThreshold>
+  <Spelling Locale="en" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+ </ProjectOptions>
+ <Targets>
+  <Target Name="C:\dev\NetReflector\build\NetReflector.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AvoidLanguageSpecificTypeNamesInParameters" Enabled="True" />
+    <Rule Name="AvoidTypeNamesInParameters" Enabled="True" />
+    <Rule Name="CompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="DoNotNameEnumValuesReserved" Enabled="True" />
+    <Rule Name="DoNotPrefixEnumValuesWithTypeName" Enabled="True" />
+    <Rule Name="EventsShouldNotHaveBeforeOrAfterPrefix" Enabled="True" />
+    <Rule Name="FlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="IdentifiersShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="IdentifiersShouldDifferByMoreThanCase" Enabled="True" />
+    <Rule Name="IdentifiersShouldHaveCorrectPrefix" Enabled="True" />
+    <Rule Name="IdentifiersShouldHaveCorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotContainUnderscores" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectPrefix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotMatchKeywords" Enabled="True" />
+    <Rule Name="LongAcronymsShouldBePascalCased" Enabled="True" />
+    <Rule Name="OnlyFlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="ParameterNamesShouldNotMatchMemberNames" Enabled="True" />
+    <Rule Name="PropertyNamesShouldNotMatchGetMethods" Enabled="True" />
+    <Rule Name="ResourceStringCompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="ShortAcronymsShouldBeUppercase" Enabled="True" />
+    <Rule Name="TypeNamesShouldNotMatchNamespaces" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AssembliesShouldDeclareMinimumSecurity" Enabled="True" />
+    <Rule Name="CallBaseClassMethodsOnISerializableTypes" Enabled="True" />
+    <Rule Name="CollectionPropertiesShouldBeReadOnly" Enabled="True" />
+    <Rule Name="DisposableFieldsShouldBeDisposed" Enabled="True" />
+    <Rule Name="DisposableTypesShouldDeclareFinalizer" Enabled="True" />
+    <Rule Name="DisposeMethodsShouldCallBaseClassDispose" Enabled="True" />
+    <Rule Name="DoNotCallOverridableMethodsInConstructors" Enabled="True" />
+    <Rule Name="DoNotDecreaseInheritedMemberVisibility" Enabled="True" />
+    <Rule Name="DoNotDisposeObjectsMultipleTimes" Enabled="True" />
+    <Rule Name="DoNotMarkEnumsWithFlags" Enabled="True" />
+    <Rule Name="DoNotMarkServicedComponentsWithWebMethod" Enabled="True" />
+    <Rule Name="DoNotRaiseExceptionsInFilterBlocks" Enabled="True" />
+    <Rule Name="DoNotRaiseReservedExceptionTypes" Enabled="True" />
+    <Rule Name="DoNotShipUnreleasedResourceFormats" Enabled="True" />
+    <Rule Name="FinalizersShouldBeProtected" Enabled="True" />
+    <Rule Name="FinalizersShouldCallBaseClassFinalizer" Enabled="True" />
+    <Rule Name="ImplementISerializableCorrectly" Enabled="True" />
+    <Rule Name="ImplementSerializationConstructors" Enabled="True" />
+    <Rule Name="ImplementSerializationMethodsCorrectly" Enabled="True" />
+    <Rule Name="InitializeValueTypeStaticFieldsInline" Enabled="True" />
+    <Rule Name="InstantiateArgumentExceptionsCorrectly" Enabled="True" />
+    <Rule Name="MarkAllNonSerializableFields" Enabled="True" />
+    <Rule Name="MarkISerializableTypesWithSerializable" Enabled="True" />
+    <Rule Name="MarkWindowsFormsEntryPointsWithStaThread" Enabled="True" />
+    <Rule Name="MembersShouldDifferByMoreThanReturnType" Enabled="True" />
+    <Rule Name="NonConstantFieldsShouldNotBeVisible" Enabled="True" />
+    <Rule Name="OperationsShouldNotOverflow" Enabled="True" />
+    <Rule Name="OperatorOverloadsHaveNamedAlternates" Enabled="True" />
+    <Rule Name="OperatorsShouldHaveSymmetricalOverloads" Enabled="True" />
+    <Rule Name="OverrideEqualsOnOverridingOperatorEquals" Enabled="True" />
+    <Rule Name="OverrideGetHashCodeOnOverridingEquals" Enabled="True" />
+    <Rule Name="OverrideOperatorEqualsOnOverridingValueTypeEquals" Enabled="True" />
+    <Rule Name="PassSystemUriObjectsInsteadOfStrings" Enabled="True" />
+    <Rule Name="ProvideDeserializationMethodsForOptionalFields" Enabled="True" />
+    <Rule Name="RethrowToPreserveStackDetails" Enabled="True" />
+    <Rule Name="UseManagedEquivalentsOfWin32Api" Enabled="True" />
+    <Rule Name="UseParamsForVariableArguments" Enabled="True" />
+   </RuleFile>
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.312" LastAnalysis="2005-09-08 12:22:14Z">
+  <Namespaces>
+   <Namespace Name="Exortech.NetReflector">
+    <Messages>
+     <Message Id="Exortech" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+      <Issue Name="Namespace">
+       <Item>Exortech</Item>
+       <Item>Exortech.NetReflector</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Exortech.NetReflector.Generators">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2005-09-08 12:21:57Z">
+      <Issue>
+       <Item>Exortech.NetReflector.Generators</Item>
+      </Issue>
+     </Message>
+     <Message Id="Exortech" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+      <Issue Name="Namespace">
+       <Item>Exortech</Item>
+       <Item>Exortech.NetReflector.Generators</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Exortech.NetReflector.Util">
+    <Messages>
+     <Message Id="Exortech" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+      <Issue Name="Namespace">
+       <Item>Exortech</Item>
+       <Item>Exortech.NetReflector.Util</Item>
+      </Issue>
+     </Message>
+     <Message Id="Util" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+      <Issue Name="Namespace">
+       <Item>Util</Item>
+       <Item>Exortech.NetReflector.Util</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="C:\dev\NetReflector\build\NetReflector.dll">
+    <Modules>
+     <Module Name="netreflector.dll">
+      <Namespaces>
+       <Namespace Name="Exortech.NetReflector">
+        <Types>
+         <Type Name="DefaultSerialiserFactory">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>DefaultSerialiserFactory</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="InvalidNodeEventArgs">
+          <Members>
+           <Member Name=".ctor(System.Xml.XmlNode,System.String)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>InvalidNodeEventArgs..ctor(XmlNode, String)</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Message">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>Message</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Node">
+            <Messages>
+             <Message TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>InvalidNodeEventArgs.Node</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>Node</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>InvalidNodeEventArgs.Node</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ToString():System.String">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>InvalidNodeEventArgs.ToString():String</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IReflectorAttribute">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>Exortech.NetReflector.IReflectorAttribute</Item>
+             <Item>Attribute</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ISerialiserFactory">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>ISerialiserFactory</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="IXmlMemberSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>IXmlMemberSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="IXmlSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>IXmlSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Read(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>IXmlSerialiser.Read(XmlNode, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IXmlTypeSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>IXmlTypeSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="MemberSerialisers">
+            <Messages>
+             <Message Id="Serialisers" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+              <Issue Name="Member">
+               <Item>Serialisers</Item>
+               <Item>MemberSerialisers</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NetReflector">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>NetReflector</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>NetReflector</Item>
+             <Item>Exortech.NetReflector</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CheckNull(System.Object,System.String,System.Type):System.Void">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>expected</Item>
+               <Item>System.Type</Item>
+               <Item>System.Reflection.MemberInfo</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>NetReflector.CheckNull(Object, String, Type):Void</Item>
+               <Item>param</Item>
+               <Item>param</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>NetReflector.CheckNull(Object, String, Type):Void</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflector.Read(XmlNode):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflector.Read(XmlNode, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Object):System.Void">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflector.Read(XmlNode, Object):Void</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Object,Exortech.NetReflector.NetReflectorTypeTable):System.Void">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflector.Read(XmlNode, Object, NetReflectorTypeTable):Void</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Write(System.Object):System.String">
+            <Messages>
+             <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>NetReflector.Write(Object):String</Item>
+               <Item>System.IO.StringWriter.#ctor</Item>
+               <Item>System.IO.StringWriter.#ctor(System.IFormatProvider)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NetReflectorException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+            <Issue>
+             <Item>public NetReflectorException()</Item>
+            </Issue>
+           </Message>
+           <Message Id="System.ApplicationException" TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058" Created="2005-09-08 12:21:57Z">
+            <Issue Name="System.ApplicationException">
+             <Item>NetReflectorException</Item>
+             <Item>System.ApplicationException</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="NetReflectorReader">
+          <Members>
+           <Member Name="Read(System.Xml.XmlNode):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflectorReader.Read(XmlNode):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>NetReflectorReader.Read(XmlNode):Object</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Object):System.Void">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>NetReflectorReader.Read(XmlNode, Object):Void</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NetReflectorTypeLoadException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+            <Issue>
+             <Item>public NetReflectorTypeLoadException()</Item>
+            </Issue>
+            <Issue>
+             <Item>public NetReflectorTypeLoadException(String)</Item>
+            </Issue>
+            <Issue>
+             <Item>public NetReflectorTypeLoadException(String, Exception)</Item>
+            </Issue>
+           </Message>
+           <Message Id="System.ApplicationException" TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058" Created="2005-09-08 12:21:57Z">
+            <Issue Name="System.ApplicationException">
+             <Item>NetReflectorTypeLoadException</Item>
+             <Item>System.ApplicationException</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="NetReflectorTypeTable">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>Exortech.NetReflector.NetReflectorTypeTable</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor(Exortech.NetReflector.Util.IInstantiator)">
+            <Messages>
+             <Message Id="0#instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>NetReflectorTypeTable..ctor(IInstantiator)</Item>
+               <Item>instantiator</Item>
+               <Item>instantiator</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Add(System.Type):System.Void">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>NetReflectorTypeTable.Add(Type):Void</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateDefault(Exortech.NetReflector.Util.IInstantiator):Exortech.NetReflector.NetReflectorTypeTable">
+            <Messages>
+             <Message Id="0#instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>NetReflectorTypeTable.CreateDefault(IInstantiator):NetReflectorTypeTable</Item>
+               <Item>instantiator</Item>
+               <Item>instantiator</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="InvalidNode" Kind="Event">
+            <Messages>
+             <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Created="2005-09-08 12:21:57Z">
+              <Issue Name="First">
+               <Item>InvalidNodeEventHandler</Item>
+              </Issue>
+              <Issue Name="Second">
+               <Item>InvalidNodeEventHandler</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetTypes(System.Reflection.Assembly):System.Type[]">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="NonBreaking">
+              <Issue Name="MarkAsStatic">
+               <Item>NetReflectorTypeTable.GetTypes(Assembly):Type[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NetReflectorWriter">
+          <Members>
+           <Member Name="Write(System.Object):System.Void">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>NetReflectorWriter.Write(Object):Void</Item>
+               <Item>System.String.Format(System.String,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReflectorPropertyAttribute">
+          <Messages>
+           <Message TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>Exortech.NetReflector.ReflectorPropertyAttribute</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CreateSerialiser(Exortech.NetReflector.Util.ReflectorMember):Exortech.NetReflector.IXmlSerialiser">
+            <Messages>
+             <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Member">
+               <Item>Serialiser</Item>
+               <Item>CreateSerialiser</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReflectorTypeAttribute">
+          <Members>
+           <Member Name="CreateSerialiser(System.Type):Exortech.NetReflector.IXmlSerialiser">
+            <Messages>
+             <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+              <Issue Name="Member">
+               <Item>Serialiser</Item>
+               <Item>CreateSerialiser</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateSerialiser(System.Type,Exortech.NetReflector.Util.IInstantiator):Exortech.NetReflector.IXmlSerialiser">
+            <Messages>
+             <Message Id="1#instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>ReflectorTypeAttribute.CreateSerialiser(Type, IInstantiator):IXmlSerialiser</Item>
+               <Item>instantiator</Item>
+               <Item>instantiator</Item>
+              </Issue>
+             </Message>
+             <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Member">
+               <Item>Serialiser</Item>
+               <Item>CreateSerialiser</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetAttribute(System.Type):Exortech.NetReflector.ReflectorTypeAttribute">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2004-10-28 17:26:52Z">
+              <Issue>
+               <Item>type</Item>
+               <Item>System.Type</Item>
+               <Item>System.Reflection.MemberInfo</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlArraySerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>XmlArraySerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="converter">
+            <Messages>
+             <Message TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>XmlArraySerialiser.converter</Item>
+               <Item>Exortech.NetReflector.Util.ReflectorTypeConverter</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>converter</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Type,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlArraySerialiser.Read(XmlNode, Type, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlCollectionSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>XmlCollectionSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="elementName">
+            <Messages>
+             <Message TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>elementName</Item>
+               <Item>string</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Type,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlCollectionSerialiser.Read(XmlNode, Type, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlDictionarySerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>XmlDictionarySerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Read(System.Xml.XmlNode,System.Type,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlDictionarySerialiser.Read(XmlNode, Type, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlMemberSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>XmlMemberSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CheckIfMemberIsRequired():System.Void">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>XmlMemberSerialiser.CheckIfMemberIsRequired():Void</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetTargetType(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Type">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>XmlMemberSerialiser.GetTargetType(XmlNode, NetReflectorTypeTable):Type</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Instantiator">
+            <Messages>
+             <Message Id="Instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Member">
+               <Item>Instantiator</Item>
+               <Item>Instantiator</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlMemberSerialiser.Read(XmlNode, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,System.Type,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlMemberSerialiser.Read(XmlNode, Type, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadValue(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="Breaking">
+              <Issue Name="MarkAsStatic">
+               <Item>XmlMemberSerialiser.ReadValue(XmlNode, NetReflectorTypeTable):Object</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlMemberSerialiser.ReadValue(XmlNode, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlTypeSerialiser">
+          <Messages>
+           <Message Id="Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Serialiser</Item>
+             <Item>XmlTypeSerialiser</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor(System.Type,Exortech.NetReflector.ReflectorTypeAttribute,Exortech.NetReflector.Util.IInstantiator)">
+            <Messages>
+             <Message Id="2#instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>XmlTypeSerialiser..ctor(Type, ReflectorTypeAttribute, IInstantiator)</Item>
+               <Item>instantiator</Item>
+               <Item>instantiator</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="AddChildNodes(System.Collections.IEnumerable,System.Collections.IList,Exortech.NetReflector.NetReflectorTypeTable):System.Void">
+            <Messages>
+             <Message Id="Exortech.NetReflector.InvalidNodeEventArgs.#ctor(System.Xml.XmlNode,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>XmlTypeSerialiser.AddChildNodes(IEnumerable, IList, NetReflectorTypeTable):Void</Item>
+               <Item>2</Item>
+               <Item>InvalidNodeEventArgs..ctor(XmlNode, String)</Item>
+               <Item>Duplicate node detected: ___</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetNodeByName(System.Collections.IList,System.String):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="NonBreaking">
+              <Issue Name="MarkAsStatic">
+               <Item>XmlTypeSerialiser.GetNodeByName(IList, String):XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Instantiator">
+            <Messages>
+             <Message Id="Instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Member">
+               <Item>Instantiator</Item>
+               <Item>Instantiator</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Read(System.Xml.XmlNode,Exortech.NetReflector.NetReflectorTypeTable):System.Object">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlTypeSerialiser.Read(XmlNode, NetReflectorTypeTable):Object</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadMembers(System.Xml.XmlNode,System.Object,Exortech.NetReflector.NetReflectorTypeTable):System.Void">
+            <Messages>
+             <Message Id="Exortech.NetReflector.InvalidNodeEventArgs.#ctor(System.Xml.XmlNode,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>XmlTypeSerialiser.ReadMembers(XmlNode, Object, NetReflectorTypeTable):Void</Item>
+               <Item>2</Item>
+               <Item>InvalidNodeEventArgs..ctor(XmlNode, String)</Item>
+               <Item>Unused node detected: ___</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlTypeSerialiser.ReadMembers(XmlNode, Object, NetReflectorTypeTable):Void</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Exortech.NetReflector.Generators">
+        <Types>
+         <Type Name="XmlDocumentationGenerator">
+          <Members>
+           <Member Name="WriteIfNotNull(System.Xml.XmlWriter,System.String,System.Type):System.Void">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>type</Item>
+               <Item>System.Type</Item>
+               <Item>System.Reflection.MemberInfo</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlMemberDocumentationGenerator">
+          <Members>
+           <Member Name="Write(System.Xml.XmlWriter,Exortech.NetReflector.IXmlTypeSerialiser):System.Void">
+            <Messages>
+             <Message Id="1#Serialiser" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+              <Issue Name="Parameter">
+               <Item>XmlMemberDocumentationGenerator.Write(XmlWriter, IXmlTypeSerialiser):Void</Item>
+               <Item>Serialiser</Item>
+               <Item>typeSerialiser</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XsdGenerator">
+          <Members>
+           <Member Name="GenerateInstanceTypeKeyAttribute(Exortech.NetReflector.IXmlMemberSerialiser):System.Xml.Schema.XmlSchemaAttribute">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="NonBreaking">
+              <Issue Name="MarkAsStatic">
+               <Item>XsdGenerator.GenerateInstanceTypeKeyAttribute(IXmlMemberSerialiser):XmlSchemaAttribute</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetComplexTypeName(Exortech.NetReflector.IXmlTypeSerialiser):System.String">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="NonBreaking">
+              <Issue Name="MarkAsStatic">
+               <Item>XsdGenerator.GetComplexTypeName(IXmlTypeSerialiser):String</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XsdTypes">
+          <Members>
+           <Member Name="Item[System.Type]">
+            <Accessors>
+             <Accessor Name="get_Item(System.Type):System.String">
+              <Messages>
+               <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-09-08 12:21:57Z">
+                <Issue>
+                 <Item>XsdTypes.get_Item(Type):String</Item>
+                 <Item>System.String.Format(System.String,System.Object)</Item>
+                 <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Exortech.NetReflector.Util">
+        <Types>
+         <Type Name="DefaultInstantiator">
+          <Messages>
+           <Message Id="Instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+            <Issue Name="Type">
+             <Item>Instantiator</Item>
+             <Item>DefaultInstantiator</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Instantiate(System.Type):System.Object">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>DefaultInstantiator.Instantiate(Type):Object</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IInstantiator">
+          <Messages>
+           <Message Id="Instantiator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2005-09-08 12:21:57Z">
+            <Issue Name="Type">
+             <Item>Instantiator</Item>
+             <Item>IInstantiator</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ReflectionUtil">
+          <Messages>
+           <Message Id="Util" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Util</Item>
+             <Item>ReflectionUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ReflectorMember">
+          <Members>
+           <Member Name="ConvertToMemberType(System.Object):System.Object">
+            <Messages>
+             <Message TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>ReflectorMember.ConvertToMemberType(Object):Object</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2004-10-28 17:26:52Z" FixCategory="Breaking">
+              <Issue>
+               <Item>ReflectorMember.ConvertToMemberType(Object):Object</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Create(System.Reflection.MemberInfo):Exortech.NetReflector.Util.ReflectorMember">
+            <Messages>
+             <Message Id="System.NotImplementedException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>ReflectorMember.Create(MemberInfo):ReflectorMember</Item>
+               <Item>1</Item>
+               <Item>NotImplementedException..ctor(String)</Item>
+               <Item>Only Property and Field member types are currently supported</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReflectorMember+ReflectorProperty">
+          <Members>
+           <Member Name="SetValue(System.Object,System.Object):System.Void">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2005-09-08 12:21:57Z">
+              <Issue>
+               <Item>ReflectorProperty.SetValue(Object, Object):Void</Item>
+               <Item>System.String.Format(System.String,System.Object,System.Object)</Item>
+               <Item>System.String.Format(System.IFormatProvider,System.String,System.Object[])</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReflectorTypeConverter">
+          <Members>
+           <Member Name="IsCompatibleType(System.Type,System.Object):System.Boolean">
+            <Messages>
+             <Message Id="this" TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801" Created="2005-09-08 12:21:57Z" FixCategory="NonBreaking">
+              <Issue Name="MarkAsStatic">
+               <Item>ReflectorTypeConverter.IsCompatibleType(Type, Object):Boolean</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StringUtil">
+          <Messages>
+           <Message Id="Util" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Util</Item>
+             <Item>StringUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Format(System.String,System.Object[]):System.String">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2004-10-28 17:26:52Z">
+              <Issue>
+               <Item>format</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlElementList">
+          <Messages>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>Exortech.NetReflector.Util.XmlElementList</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Item(System.Int32):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlElementList.Item(Int32):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlUtil">
+          <Messages>
+           <Message Id="Util" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2004-10-28 17:26:52Z">
+            <Issue Name="Type">
+             <Item>Util</Item>
+             <Item>XmlUtil</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2004-10-28 17:26:52Z">
+            <Issue>
+             <Item>XmlUtil</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="GetChildNode(System.Xml.XmlNode,System.String):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlUtil.GetChildNode(XmlNode, String):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlUtil.GetChildNode(XmlNode, String):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadNode(System.String):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlUtil.ReadNode(String):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ReadNode(System.Xml.XmlReader):System.Xml.XmlNode">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2005-09-08 12:21:57Z">
+              <Issue Name="System.Xml.XmlNode">
+               <Item>XmlUtil.ReadNode(XmlReader):XmlNode</Item>
+               <Item>System.Xml.XmlNode</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Name>Avoid namespaces with few types</Name>
+    <Description>A namespace should generally have more than five types.</Description>
+    <Resolution Name="Default">Consider merging the types defined in  '{0}' with another namespace.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/AvoidNamespacesWithFewTypes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="50">Warning</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813">
+    <Name>Avoid unsealed attributes</Name>
+    <Description>Seal attribute types for improved performance. Sealing attribute types speeds up performance during reflection on custom attributes.</Description>
+    <Resolution Name="Default">Seal '{0}', if possible.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Performance/AvoidUnsealedAttributes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Warning</MessageLevel>
+    <File Name="PerformanceRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="AvoidUnusedParameters" Category="Microsoft.Performance" CheckId="CA1801">
+    <Name>Avoid unused parameters</Name>
+    <Description>Avoid declaring parameters that are not used in the method body. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
+    <Resolution Name="MarkAsStatic">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the method as static (or Shared in VB) or use 'this'/Me in the method body.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Performance/AvoidUnusedParameters.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Warning</MessageLevel>
+    <File Name="PerformanceRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="CatchNonClsCompliantExceptionsInGeneralHandlers" Category="Microsoft.Security" CheckId="CA2102">
+    <Name>Catch non-CLSCompliant exceptions in general handlers</Name>
+    <Description>Exception handlers which are truly intended to catch all exceptions should handle non-CLSCompliant exceptions if there is a possibility one can be raised. If possible, catch handlers should only catch specific exceptions or exception base types. In circumstances where a handler is required to catch all exceptions (e.g., when a try block wraps arbitrary plug-in code), the handler should also include a generic catch handler (in C#, catch{ ... }) to handle non-CLSCompliant exceptions. It is possible to raise non-CLSCompliant exceptions by modifying and recompiling IL.</Description>
+    <Resolution Name="Default">{0} contains a catch(Exception) handler that is not matched with a generic catch clause (catch{{}} in C#, catch(System::Object*){{}} in mc++) for non-CLSCompliant exception. Eliminate the catch(Exception) clause by catching a specific set of Exceptions or add a generic catch (catch() in C#) that duplicates the code contained within the catch(Exception) handler.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Security/CatchNonClsCompliantExceptionsInGeneralHandlers.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="80">Error</MessageLevel>
+    <File Name="SecurityRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Name>Consider passing base types as parameters</Name>
+    <Description>Using base types as parameters to methods improves re-use of these methods if you only use methods &amp; properties from the parameter's base class. E.g. use Stream instead of FileStream as a parameter when only calling Stream.Read(), this makes the method work on all kind of streams instead of just File streams.</Description>
+    <Resolution Name="Default">Consider changing the type of parameter '{0}' from '{1}' to '{2}' since '{1}' derives from '{2}' and this method only calls methods that are defined in '{2}'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/ConsiderPassingBaseTypesAsParameters.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009">
+    <Name>Declare event handlers correctly</Name>
+    <Description>By convention, .NET events have two parameters that specify the event sender and event data. Event handler signatures should follow this form: void MyEventHandler(object sender, EventArgs e). The 'sender' parameter is always of type System.Object, even if it is possible to employ a more specific type. The 'e' parameter is always of type System.EventArgs. Events that do not provide event data should use the System.EventHandler delegate type. Event handlers return void so that they can send each event to multiple target methods. Any value returned by a target would be lost after the first call.</Description>
+    <Resolution Name="First">Declare the first parameter of '{0}' as an object named 'sender'.</Resolution>
+    <Resolution Name="Second">Declare the second parameter of '{0}' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/DeclareEventHandlersCorrectly.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="99">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="DoNotDeclareReadOnlyMutableReferenceTypes" Category="Microsoft.Security" CheckId="CA2104">
+    <Name>Do not declare read only mutable reference types</Name>
+    <Description>A read-only declaration for a mutable reference type does not prevent the field's instance data from being modified. For example, a read-only StringBuilder field declaration does not make sense, since the data encapsulated by the StringBuilder can be modified using the read-only reference.</Description>
+    <Resolution Name="Default">Remove the readonly declaration from '{0}' or change the field to one that is an immutable reference type. If the reference type '{1}' is, in fact, immutable, exclude this message.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Security/DoNotDeclareReadOnlyMutableReferenceTypes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="25">Error</MessageLevel>
+    <File Name="SecurityRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Name>Do not declare visible instance fields</Name>
+    <Description>Public or protected instance fields limit your ability to change the implementation details for those data items. Use properties instead. They do not compromise usability or performance and they do provide flexibility in that they conceal the  implementation details of the underlying data.</Description>
+    <Resolution Name="Default">Make '{0}' private or internal (Friend in VB, public private in C++) and provide a public or protected property to access it.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/DoNotDeclareVisibleInstanceFields.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="90">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303">
+    <Name>Do not pass literals as localized parameters</Name>
+    <Description>String literals that are embedded in source code are difficult to localize. Avoid passing string literals as arguments in circumstances where a localized string is generally expected. Most localized applications, for example, should localize string arguments that are passed to exception constructors. When creating an Exception instance, therefore, a string argument retrieved from a string table is more appropriate than a string literal.</Description>
+    <Resolution Name="Default">{0} passes a literal as parameter {1} of a call to {2}. Retrieve the following string argument from a resource table instead: '{3}'</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Globalization/DoNotPassLiteralsAsLocalizedParameters.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="GlobalizationRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Name>Identifiers should be spelled correctly</Name>
+    <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+    <Resolution Name="Member">Correct the spelling of the unrecognized token '{0}' in member '{1}'.</Resolution>
+    <Resolution Name="Namespace">Correct the spelling of the unrecognized token '{0}' in namespace '{1}'.</Resolution>
+    <Resolution Name="Parameter">In {0}, correct the spelling of the unrecognized token '{1}' in parameter name '{2}' or strip it entirely if it represents any sort of hungarian notation.</Resolution>
+    <Resolution Name="Type">Correct the spelling of the unrecognized token '{0}' in type '{1}'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Naming/IdentifiersShouldBeSpelledCorrectly.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710">
+    <Name>Identifiers should have correct suffix</Name>
+    <Description>Types that extend certain base types have specified name suffixes. Types that extend Attribute, for example, should be suffixed in 'Attribute', as in ObsoleteAttribute. This rules checks types that extend several base types, including Attribute, Exception, EventArgs, IMembershipPermission, Stream, and others.</Description>
+    <Resolution Name="Default">Rename '{0}' to end in '{1}'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Naming/IdentifiersShouldHaveCorrectSuffix.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Name>Identifiers should not have incorrect suffix</Name>
+    <Description>Types that do not extend certain base types should not use reserved name suffixes.</Description>
+    <Resolution Name="Default">Rename '{0}' so that it does not end in '{1}'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Naming/IdentifiersShouldNotHaveIncorrectSuffix.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">CriticalError</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
+    <Name>Implement standard exception constructors</Name>
+    <Description>Multiple constructors are required to correctly implement a custom exception. Missing constructors can make your exception unusable in certain scenarios. For example, the serialization constructor is required for handling exceptions in XML Web services.</Description>
+    <Resolution Name="Default">Add the following constructor to this class: {0}</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/ImplementStandardExceptionConstructors.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059">
+    <Name>Members should not expose certain concrete types</Name>
+    <Description>Members should not expose certain concrete types.</Description>
+    <Resolution Name="System.Xml.XmlNode">Modify member '{0}' so that it no longer exposes the concrete type {1}. Use IXPathNavigable to represent Xml data sources.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/MembersShouldNotExposeCertainConcreteTypes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719">
+    <Name>Parameter names should not match member names</Name>
+    <Description>Parameter names should be distinct from member names.</Description>
+    <Resolution Name="Default">Change either member or parameter name '{0}' so that one differs from the other.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Naming/ParameterNamesShouldNotMatchMemberNames.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Name>Specify IFormatProvider</Name>
+    <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the common language runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture.</Description>
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide an IFormatProvider. This should be replaced with a call to {2}.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Globalization/SpecifyIFormatProvider.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="GlobalizationRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+    <Name>Static holder types should not have constructors</Name>
+    <Description>Instances of types that define only static members do not need to be created. Many compilers will automatically add a public default constructor if no constructor is specified.  To prevent this, adding an empty private constructor may be required.</Description>
+    <Resolution Name="Default">Remove the public constructors from '{0}'.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/StaticHolderTypesShouldNotHaveConstructors.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="90">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Name>Type names should not match namespaces</Name>
+    <Description>Identifiers which conflict in whole or in part with namespace names should be avoided. Names that describe the purpose or contents of a type are preferred.</Description>
+    <Resolution Name="Default">The type name '{0}' conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Naming/TypeNamesShouldNotMatchNamespaces.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="TypesShouldNotExtendCertainBaseTypes" Category="Microsoft.Design" CheckId="CA1058">
+    <Name>Types should not extend certain base types</Name>
+    <Description>Types do not extend inheritance vulnerable types.</Description>
+    <Resolution Name="System.ApplicationException">Change {0}'s base type so that it no longer extends {1}. This base exception type does not provide any additional value for framework classes. Extend System.Exception or an existing unsealed exception type instead. Do not create a new exception base type unless there is specific value in enabling the creation of a catch handler for an entire class of exceptions.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Design/TypesShouldNotExtendCertainBaseTypes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.312.0.0" />
+   </Rule>
+   <Rule TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802">
+    <Name>Use literals where appropriate</Name>
+    <Description>Prefer literals over InitOnly fields if values do not have to be calculated at runtime.</Description>
+    <Resolution Name="Default">Field '{0}' is declared as 'static readonly' but is initialized with a constant value '{1}'. Mark this field as 'const' instead.</Resolution>
+    <Owner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules.aspx?version=1.312&amp;&amp;url=/Performance/UseLiteralsWhereAppropriate.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Warning</MessageLevel>
+    <File Name="PerformanceRules.dll" Version="1.312.0.0" />
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

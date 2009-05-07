@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+<project name="NetReflector" default="all">
+
+  <!-- PROPERTIES -->
+  <property name="verbosity" value="true"/>
+  <property name="build.dir" value="build"/>
+  <property name="src.dir" value="src" />
+  <property name="lib.dir" value="lib"/>
+  <property name="publish.dir" value="dist" />
+
+  <property name="core.dll" value="NetReflector.dll" />
+  <property name="test.dll" value="NetReflector.Test.dll" />
+  <property name="plugin.dll" value="NetReflectorPlugin.Test.dll" />
+  <property name="documenter.dll" value="NetReflectorDocumenterTask.dll" />
+  <property name="vil.executable" value="tools\vil\vil.exe" />
+  <property name="vil.assemblies" value="${core.dll},${test.dll}" />
+  <property name="nunit-console.exe" value="tools\nunit\nunit-console.exe" />
+  <property name="ncover-console.exe" value="tools\ncover\NCover.Console.exe" />
+  <property name="CCNetLabel" value="1.0.0.0" overwrite="false" />    
+
+  <!-- ALL -->
+  <target name="all" depends="clean,compile,test.unit" description="runs everything" />
+
+  <!-- CLEAN -->
+  <target name="clean" description="cleans up everything">
+    <delete dir="${build.dir}" if="${directory::exists(build.dir)}" verbose="${verbosity}"/>
+    <delete dir="${publish.dir}" if="${directory::exists(publish.dir)}" verbose="${verbosity}"/>
+  </target>
+
+
+  <!-- INIT -->
+  <target name="init" description="initial compilation setup">
+    <mkdir dir="${build.dir}" verbose="${verbosity}"/>
+    <mkdir dir="${publish.dir}" verbose="${verbosity}"/>
+  </target>
+
+
+  <!-- COMPILE -->
+  <target name="compile" depends="init,compile.core,compile.documenter,compile.plugin,compile.test" description="compiles everything"/>
+
+  <target name="compile.core" depends="init" description="compiles the core assembly" >
+    <csc target="library" output="${build.dir}\${core.dll}" debug="true" optimize="true">
+      <sources basedir="${src.dir}\NetReflector">
+        <include name="**\*.cs"/>
+      </sources>
+      <!-- don't warn about uncommented public methods -->
+      <arg value="/nowarn:1591"/> 
+    </csc>
+  </target>
+  
+  <target name="compile.plugin" depends="init" description="compiles plugin assembly to be used by the tests">
+    <csc target="library" output="${build.dir}\${plugin.dll}" debug="true" optimize="true">
+      <sources basedir="${src.dir}\NetReflectorPluginTest">
+        <include name="**\*.cs"/>
+      </sources>
+      <references>
+        <include name="${build.dir}\${core.dll}"/>
+      </references>
+      <arg value="/nowarn:1591"/> 
+    </csc>
+  </target>
+
+  <target name="compile.test" depends="init" description="compiles the core assembly" >
+    <csc target="library" output="${build.dir}\${test.dll}" debug="true" optimize="true">
+      <sources basedir="${src.dir}\NetReflector.Test">
+        <include name="**\*.cs"/>
+      </sources>
+      <references>
+        <include name="${build.dir}\${core.dll}"/>
+        <include name="${lib.dir}\nunit.framework.dll"/>
+      </references>
+      <!-- don't warn about uncommented public methods -->
+      <arg value="/nowarn:1591"/> 
+    </csc>
+    <copy file="${lib.dir}\nunit.framework.dll" todir="${build.dir}"/>
+    <copy file="${lib.dir}\nunit.core.dll" todir="${build.dir}"/>
+  </target>
+
+  <target name="compile.documenter" depends="init" description="compiles the nant documenter task" >
+    <csc target="library" output="${build.dir}\${documenter.dll}" debug="true" optimize="true">
+      <sources basedir="${src.dir}\NetReflectorDocumenterTask">
+        <include name="**\*.cs"/>
+      </sources>
+      <references>
+        <include name="${build.dir}\${core.dll}"/>
+        <include name="tools\nant\NAnt.Core.dll"/>
+      </references>
+      <!-- don't warn about uncommented public methods -->
+      <arg value="/nowarn:1591"/> 
+    </csc>
+  </target>
+
+  <!-- TEST -->
+  <target name="test.unit" description="runs unit tests">
+	<exec program="regsvr32" workingdir="tools\ncover" commandline="/s CoverLib.dll" />
+	<exec program="${ncover-console.exe}" workingdir="${build.dir}" commandline="/w . /c &quot;..\${nunit-console.exe}&quot; &quot;${test.dll} /xml:${test.dll}-results.xml /nologo&quot;"/>
+  </target>
+
+  <!-- DISTRIBUTION BUILD -->
+  <target name="dist" depends="dist.properties,all,package" description="build distribution version"/>
+  
+  <target name="dist.properties" description="sets properties for release build">
+    <property name="build.dir" value="dist" />
+  </target>
+  
+  <!-- ZIP PACKAGE -->
+  <target name="package" depends="package.dll, package.src"/>
+
+  <target name="package.dll" description="Creates an assembly zip file.">
+    <!-- create zip file -->
+    <property name="project.zip-path" value="${publish.dir}\${nant.project.name}-${CCNetLabel}.zip"/>
+    <zip zipfile="${project.zip-path}">
+      <fileset>
+        <include name="${build.dir}/${core.dll}"/>
+        <include name="${build.dir}/${documenter.dll}"/>
+      </fileset>
+    </zip>
+
+    <echo message="Created zip package at file://${project.zip-path}"/>
+  </target>
+
+  <target name="package.src" description="Creates a source zip file.">
+    <!-- create zip file -->
+    <property name="project.zip-path" value="${publish.dir}\${nant.project.name}-${CCNetLabel}.src.zip"/>
+    <zip zipfile="${project.zip-path}">
+      <fileset>
+        <include name="lib/*"/>
+        <include name="src/**/*"/>
+        <exclude name="**/obj/**"/>
+        <exclude name="**/bin/**"/>
+        <exclude name="**/.*/**"/>
+        <exclude name="**/_*/**"/>
+      </fileset>
+    </zip>
+
+    <echo message="Created zip package at file://${project.zip-path}"/>
+  </target>
+
+  <!-- FOR RUNNING CCNET AGAINST ITSELF -->
+  <target name="ContinuousIntegration" depends="ccnet.properties,createAssemblyInfo,all,package,reporting" />
+
+  <target name="ccnet.properties">
+    <property name="publish.dir" value="${CCNetArtifactDirectory}\${CCNetLabel}"/>
+  </target>
+
+  <target name="createAssemblyInfo" description="Create an assembly info file with the current build number" >
+    <asminfo output="src/NetReflector/VersionAssemblyInfo.cs" language="CSharp">
+      <imports>
+        <import namespace="System.Reflection" />
+      </imports>
+      <attributes>
+        <attribute type="AssemblyVersionAttribute" value="${CCNetLabel}" />
+      </attributes>
+    </asminfo>
+  </target>
+		
+  <target name="reporting" depends="compile,fxcop,vil" />
+	
+  <target name="fxcop">
+    <mkdir dir="${build.dir}\fxcop" />
+    <exec program="tools\fxcop\fxcopcmd.exe" 
+      commandline="/file:${build.dir}\NetReflector.dll /o:${build.dir}\fxcop\netreflector-fxcop.xml" failonerror="false"/>	
+  </target>
+	
+  <target name="vil">
+    <mkdir dir="${build.dir}\vil" />
+    <exec program="${vil.executable}" 
+	workingdir="${build.dir}"
+	commandline='/a="${vil.assemblies}" /outxml="vil\NetReflector.results-vil.xml"  /m classes,enumerations,structs,types,LOC,events,impInterfaces,WMC,DIT,CBO,RFC,NOC,constructors,methods,imps,fields,properties /sc=type' 
+	failonerror="false"/>
+  </target>	
+</project>

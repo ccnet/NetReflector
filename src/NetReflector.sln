@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflector", "NetReflector\NetReflector.csproj", "{6F47E988-250D-4B42-9278-07F18B3704BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflectorTest", "NetReflector.Test\NetReflectorTest.csproj", "{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F47E988-250D-4B42-9278-07F18B3704BE} = {6F47E988-250D-4B42-9278-07F18B3704BE}
+		{4EB8C393-C246-4E5A-BD57-146ECFF60C2B} = {4EB8C393-C246-4E5A-BD57-146ECFF60C2B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflectorPluginTest", "NetReflectorPluginTest\NetReflectorPluginTest.csproj", "{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F47E988-250D-4B42-9278-07F18B3704BE} = {6F47E988-250D-4B42-9278-07F18B3704BE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflectorDocumenterTask", "NetReflectorDocumenterTask\NetReflectorDocumenterTask.csproj", "{44B2D6B3-AB72-4D7C-8009-D5774F8FDD5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F47E988-250D-4B42-9278-07F18B3704BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F47E988-250D-4B42-9278-07F18B3704BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F47E988-250D-4B42-9278-07F18B3704BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F47E988-250D-4B42-9278-07F18B3704BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB8C393-C246-4E5A-BD57-146ECFF60C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B2D6B3-AB72-4D7C-8009-D5774F8FDD5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B2D6B3-AB72-4D7C-8009-D5774F8FDD5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B2D6B3-AB72-4D7C-8009-D5774F8FDD5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B2D6B3-AB72-4D7C-8009-D5774F8FDD5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,48 @@
+BODY {
+	FONT: 11px/1.5 Verdana, sans-serif; COLOR: black; BACKGROUND-COLOR: #003;
+	PADDING: 0px; MARGIN: 0px
+}
+H1 {
+	FONT-SIZE: 2em; MARGIN: 1em 0px 0px; FONT-FAMILY: arial, verdana, sans-serif; COLOR: #036
+}
+H2 {
+	FONT-SIZE: 1.75em; MARGIN: 1em 0px 0px; FONT-FAMILY: arial, verdana, sans-serif; COLOR: #036
+}
+H3 {
+	FONT-SIZE: 1.5em; MARGIN: 1em 0px 0px; FONT-FAMILY: arial, verdana, sans-serif; COLOR: #036
+}
+A {
+	TEXT-DECORATION: none; COLOR: #036; FONT-WEIGHT: bold;
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #900; 
+}
+UL, OL {
+	MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px
+}
+#header {
+	BACKGROUND-COLOR: #003; PADDING: 8px;
+}
+#menu {
+	PADDING: 4px 4px 0px 8px; COLOR: white; FONT: 12px Verdana; FONT-WEIGHT: bold;
+}
+#menu a { 
+	PADDING: 1px 6px 1px 6px; COLOR: #ffffff; TEXT-DECORATION: none; BORDER: 1px solid #003;
+}
+#menu a:hover { 
+	BORDER: 1px solid #ffffff; BACKGROUND-COLOR: #036;
+}
+#content {
+	FLOAT: left; PADDING: 0px 24px 0px 24px; WIDTH: 700px; COLOR: #000; 
+	BACKGROUND-COLOR: #fff; HEIGHT: 100%; BORDER-TOP: #036 4px solid; 
+	BORDER-BOTTOM: #036 4px solid; BORDER-RIGHT: #036 4px solid;
+}
+#sidebar, #sidebar H3, #sidebar a {
+	COLOR: #fff
+}
+.lastmod {
+	TEXT-ALIGN: right; FONT-STYLE: italic; COLOR: #036; CLEAR: both
+}

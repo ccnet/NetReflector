@@ -1,0 +1,30 @@
+using System;
+using System.Xml;
+using Exortech.NetReflector.Util;
+
+namespace Exortech.NetReflector
+{
+	public class XmlArraySerialiser : XmlCollectionSerialiser
+	{
+		protected readonly ReflectorTypeConverter converter;
+
+		public XmlArraySerialiser(ReflectorMember member, ReflectorPropertyAttribute attribute) : base(member, attribute)
+		{
+			converter = new ReflectorTypeConverter();
+		}
+
+		protected override object Read(XmlNode node, Type instanceType, NetReflectorTypeTable table)
+		{
+			Type elementType = instanceType.GetElementType();
+			// null check
+			XmlElementList nodes = new XmlElementList(node.ChildNodes);
+			Array array = Array.CreateInstance(elementType, nodes.Count);
+			for (int i = 0; i < array.Length; i++)
+			{
+				object value = converter.Convert(elementType, ReadValue(nodes[i], table));
+				array.SetValue(value, i);
+			}
+			return array;
+		}
+	}
+}
