@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.30729</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -108,9 +108,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Generators\XmlDocumentationGeneratorTest.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Generators\XsdGeneratorTest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NetReflectorTest.cs">
