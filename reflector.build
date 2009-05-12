@@ -1,173 +1,239 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<project name="NetReflector" default="all">
+<project name="NetReflector" default="all" xmlns="http://nant.sf.net/release/0.86-beta1/nant.xsd">
 
-  <!-- PROPERTIES -->
-  <property name="verbosity" value="true"/>
-  <property name="build.dir" value="build"/>
-  <property name="src.dir" value="src" />
-  <property name="lib.dir" value="lib"/>
-  <property name="publish.dir" value="dist" />
+	<!-- properties -->
+	<property name="nant.verbosity" value="true" overwrite="false" />
+	<property name="build.configuration" value="Debug" overwrite="false" />
+	<property name="build.target" value="Build" overwrite="false" />
+	<property name="build.project" value="NetReflector.sln" overwrite="false" />
+	<property name="build.target.framework" value="3.5" overwrite="false" />
+	<property name="CCNetLabel" value="0.0.0.0" overwrite="false" />
+	<property name="codemetrics.output.type" value="XmlFile" overwrite="false" />
 
-  <property name="core.dll" value="NetReflector.dll" />
-  <property name="test.dll" value="NetReflector.Test.dll" />
-  <property name="plugin.dll" value="NetReflectorPlugin.Test.dll" />
-  <property name="documenter.dll" value="NetReflectorDocumenterTask.dll" />
-  <property name="vil.executable" value="tools\vil\vil.exe" />
-  <property name="vil.assemblies" value="${core.dll},${test.dll}" />
-  <property name="nunit-console.exe" value="tools\nunit\nunit-console.exe" />
-  <property name="ncover-console.exe" value="tools\ncover\NCover.Console.exe" />
-  <property name="CCNetLabel" value="1.0.0.0" overwrite="false" />    
+	<!-- common path properties -->
+	<property name="src.dir" value="${path::get-full-path('src')}" readonly="true" />
+	<property name="build.dir" value="${path::get-full-path('Build')}" readonly="true" />
+	<property name="build.metrics.dir" value="${path::get-full-path('BuildMetrics')}" readonly="true" />
+	<property name="publish.dir" value="${path::get-full-path('Publish')}" readonly="true" />
+	<property name="tools.dir" value="${path::get-full-path('Tools')}" readonly="true" />
+	<property name="gendarme.project" value="${path::combine(src.dir, 'gendarme.assemblies.txt')}" overwrite="false" />
+	<property name="ndepend.project" value="${path::combine(src.dir, 'NDependProject.xml')}" overwrite="false" />
+	<property name="fxcop.project" value="${path::combine(src.dir, 'NetReflector.FxCop')}" overwrite="false" />
 
-  <!-- ALL -->
-  <target name="all" depends="clean,compile,test.unit" description="runs everything" />
+	<!-- tool path properties -->
+	<property name="nauckit.nant.assembly" value="${path::combine( path::combine(tools.dir, 'NAnt'), 'NauckIT.NAnt.dll')}" readonly="true" />
+	<property name="gendarme.executable" value="${path::combine( path::combine(tools.dir, 'Gendarme'), 'gendarme.exe')}" readonly="true" />
+	<property name="ndepend.executable" value="${path::combine( path::combine(tools.dir, 'NDepend'), 'NDepend.Console.exe')}" readonly="true" />
+	<property name="fxcop.executable" value="${path::combine( path::combine(tools.dir, 'FxCop'), 'FxCopCmd.exe')}" readonly="true" />
+	<property name="nunit.executable"	value="${path::combine( path::combine(tools.dir, 'NUnit'), 'nunit-console.exe')}" readonly="true" />
 
-  <!-- CLEAN -->
-  <target name="clean" description="cleans up everything">
-    <delete dir="${build.dir}" if="${directory::exists(build.dir)}" verbose="${verbosity}"/>
-    <delete dir="${publish.dir}" if="${directory::exists(publish.dir)}" verbose="${verbosity}"/>
-  </target>
+	<!-- common assembly info properties -->
+	<property name="assembly.company" value="R. Owen Rogers and Contributors" readonly="true" />
+	<property name="assembly.product" value="NetReflector" readonly="true" />
+	<property name="assembly.copyright" value="Copyright © 2004 - ${datetime::get-year(datetime::now())} ${assembly.company}" readonly="true" />
+	<property name="assembly.trademark" value="" readonly="true" />
+	<property name="assembly.version" value="${CCNetLabel}" readonly="true" />
+	<property name="assembly.fileversion" value="${CCNetLabel}" readonly="true" />
 
+	<!-- Framework Support
+	http://nant.sourceforge.net/faq.html#framework-support
+	-->
+	<property name="nant.settings.currentframework" value="${framework::get-family(nant.settings.currentframework)}-${build.target.framework}" />
 
-  <!-- INIT -->
-  <target name="init" description="initial compilation setup">
-    <mkdir dir="${build.dir}" verbose="${verbosity}"/>
-    <mkdir dir="${publish.dir}" verbose="${verbosity}"/>
-  </target>
+	<!-- add a by msbuild required trailing slash to OutDir property	-->
+	<if test="${platform::is-unix()}">
+		<property name="build.out.dir" value="${build.dir}/" />
+	</if>
 
+	<if test="${platform::is-windows()}">
+		<property name="build.out.dir" value="${build.dir}\" />
+	</if>
 
-  <!-- COMPILE -->
-  <target name="compile" depends="init,compile.core,compile.documenter,compile.plugin,compile.test" description="compiles everything"/>
+	<!-- Targets -->
+	<target name="all" depends="clean, init, build, runTests, runCodeMetrics, package" description="" />
 
-  <target name="compile.core" depends="init" description="compiles the core assembly" >
-    <csc target="library" output="${build.dir}\${core.dll}" debug="true" optimize="true">
-      <sources basedir="${src.dir}\NetReflector">
-        <include name="**\*.cs"/>
-      </sources>
-      <!-- don't warn about uncommented public methods -->
-      <arg value="/nowarn:1591"/> 
-    </csc>
-  </target>
-  
-  <target name="compile.plugin" depends="init" description="compiles plugin assembly to be used by the tests">
-    <csc target="library" output="${build.dir}\${plugin.dll}" debug="true" optimize="true">
-      <sources basedir="${src.dir}\NetReflectorPluginTest">
-        <include name="**\*.cs"/>
-      </sources>
-      <references>
-        <include name="${build.dir}\${core.dll}"/>
-      </references>
-      <arg value="/nowarn:1591"/> 
-    </csc>
-  </target>
+	<target name="clean" description="Clean up">
+		<delete dir="${build.dir}" if="${directory::exists(build.dir)}" verbose="${nant.verbosity}" />
+		<delete dir="${publish.dir}" if="${directory::exists(publish.dir)}" verbose="${nant.verbosity}" />
+	</target>
 
-  <target name="compile.test" depends="init" description="compiles the core assembly" >
-    <csc target="library" output="${build.dir}\${test.dll}" debug="true" optimize="true">
-      <sources basedir="${src.dir}\NetReflector.Test">
-        <include name="**\*.cs"/>
-      </sources>
-      <references>
-        <include name="${build.dir}\${core.dll}"/>
-        <include name="${lib.dir}\nunit.framework.dll"/>
-      </references>
-      <!-- don't warn about uncommented public methods -->
-      <arg value="/nowarn:1591"/> 
-    </csc>
-    <copy file="${lib.dir}\nunit.framework.dll" todir="${build.dir}"/>
-    <copy file="${lib.dir}\nunit.core.dll" todir="${build.dir}"/>
-  </target>
+	<target name="init" description="Initial compilation setup">
+		<mkdir dir="${build.dir}" unless="${directory::exists(build.dir)}" verbose="${nant.verbosity}" />
+		<mkdir dir="${build.metrics.dir}" unless="${directory::exists(build.metrics.dir)}" verbose="${nant.verbosity}" />
+		<mkdir dir="${publish.dir}" unless="${directory::exists(publish.dir)}" verbose="${nant.verbosity}" />
+	</target>
 
-  <target name="compile.documenter" depends="init" description="compiles the nant documenter task" >
-    <csc target="library" output="${build.dir}\${documenter.dll}" debug="true" optimize="true">
-      <sources basedir="${src.dir}\NetReflectorDocumenterTask">
-        <include name="**\*.cs"/>
-      </sources>
-      <references>
-        <include name="${build.dir}\${core.dll}"/>
-        <include name="tools\nant\NAnt.Core.dll"/>
-      </references>
-      <!-- don't warn about uncommented public methods -->
-      <arg value="/nowarn:1591"/> 
-    </csc>
-  </target>
+	<target name="createAssemblyInfo" description="Create an assembly info file with the current build number">
+		<asminfo language="CSharp" output="${path::combine(src.dir, 'CommonAssemblyInfo.cs')}" verbose="${nant.verbosity}">
+			<imports>
+				<import namespace="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyCompanyAttribute" value="${assembly.company}" />
+				<attribute type="AssemblyProductAttribute" value="${assembly.product}" />
+				<attribute type="AssemblyCopyrightAttribute" value="${assembly.copyright}" />
+				<attribute type="AssemblyTrademarkAttribute" value="${assembly.trademark}" />
+				<attribute type="AssemblyVersionAttribute" value="${assembly.version}" />
+				<attribute type="AssemblyFileVersionAttribute" value="${assembly.fileversion}" />
+			</attributes>
+		</asminfo>
+	</target>
 
-  <!-- TEST -->
-  <target name="test.unit" description="runs unit tests">
-	<exec program="regsvr32" workingdir="tools\ncover" commandline="/s CoverLib.dll" />
-	<exec program="${ncover-console.exe}" workingdir="${build.dir}" commandline="/w . /c &quot;..\${nunit-console.exe}&quot; &quot;${test.dll} /xml:${test.dll}-results.xml /nologo&quot;"/>
-  </target>
+	<target name="build" depends="init, createAssemblyInfo" description="Compilation of the build project">
+		<loadtasks assembly="${nauckit.nant.assembly}" />
 
-  <!-- DISTRIBUTION BUILD -->
-  <target name="dist" depends="dist.properties,all,package" description="build distribution version"/>
-  
-  <target name="dist.properties" description="sets properties for release build">
-    <property name="build.dir" value="dist" />
-  </target>
-  
-  <!-- ZIP PACKAGE -->
-  <target name="package" depends="package.dll, package.src"/>
+		<if test="${build.configuration == 'Debug'}">
+			<echo message="Build debug configuration" />
+		</if>
 
-  <target name="package.dll" description="Creates an assembly zip file.">
-    <!-- create zip file -->
-    <property name="project.zip-path" value="${publish.dir}\${nant.project.name}-${CCNetLabel}.zip"/>
-    <zip zipfile="${project.zip-path}">
-      <fileset>
-        <include name="${build.dir}/${core.dll}"/>
-        <include name="${build.dir}/${documenter.dll}"/>
-      </fileset>
-    </zip>
+		<if test="${build.configuration == 'Release'}">
+			<echo message="Build release configuration" />
+		</if>
 
-    <echo message="Created zip package at file://${project.zip-path}"/>
-  </target>
+		<echo message="Source Directory: ${src.dir}" />
+		<echo message="Build Directory: ${build.out.dir}" />
 
-  <target name="package.src" description="Creates a source zip file.">
-    <!-- create zip file -->
-    <property name="project.zip-path" value="${publish.dir}\${nant.project.name}-${CCNetLabel}.src.zip"/>
-    <zip zipfile="${project.zip-path}">
-      <fileset>
-        <include name="lib/*"/>
-        <include name="src/**/*"/>
-        <exclude name="**/obj/**"/>
-        <exclude name="**/bin/**"/>
-        <exclude name="**/.*/**"/>
-        <exclude name="**/_*/**"/>
-      </fileset>
-    </zip>
+		<msbuild projectFile="${path::combine(src.dir, build.project)}" targets="${build.target}" verbosity="Minimal">
+			<property name="Configuration" value="${build.configuration}" />
+			<property name="OutputPath" value="${build.out.dir}" />
+			<property name="OutDir" value="${build.out.dir}" />
 
-    <echo message="Created zip package at file://${project.zip-path}"/>
-  </target>
+			<!-- Hack for current xbuild issues on Mono 2.5 -->
+			<environment>
+				<!--<variable name="MONO_IOMAP" value="all" if="${framework::get-family(nant.settings.currentframework) == 'mono'}" />-->
+				<variable name="MONO_PATH" value="${path::get-full-path('lib')}" if="${framework::get-family(nant.settings.currentframework) == 'mono'}" />
+			</environment>
+		</msbuild>
+	</target>
 
-  <!-- FOR RUNNING CCNET AGAINST ITSELF -->
-  <target name="ContinuousIntegration" depends="ccnet.properties,createAssemblyInfo,all,package,reporting" />
+	<!-- Test targets -->
+	<target name="runTests" depends="build" description="Run unit tests">
+		<call target="runNUnitTests" cascade="false" />
+	</target>
 
-  <target name="ccnet.properties">
-    <property name="publish.dir" value="${CCNetArtifactDirectory}\${CCNetLabel}"/>
-  </target>
+	<target name="runNUnitTests" depends="build" description="Run the NUnit tests">
+		<loadtasks assembly="${nauckit.nant.assembly}" />
 
-  <target name="createAssemblyInfo" description="Create an assembly info file with the current build number" >
-    <asminfo output="src/NetReflector/VersionAssemblyInfo.cs" language="CSharp">
-      <imports>
-        <import namespace="System.Reflection" />
-      </imports>
-      <attributes>
-        <attribute type="AssemblyVersionAttribute" value="${CCNetLabel}" />
-      </attributes>
-    </asminfo>
-  </target>
+		<nunitTest executable="${nunit.executable}" workingDirectory="${build.dir}" outputFile="${path::combine(build.metrics.dir, 'nunit-result.xml')}" commandLineParameterFlag="-">
+			<assemblies>
+				<include name="${path::combine(build.dir, 'NetReflector.Test.dll')}" />
+			</assemblies>
+		</nunitTest>
+	</target>
+	
+	<!-- Code analyze metric targets -->
+	<target name="runCodeMetrics" depends="build" description="Analyze and collect code metrics of the compiled assemblies">
+
+		<call target="runGendarme" cascade="false" />
+
+		<!-- Execute Windows only code metric tools -->
+		<if test="${platform::is-windows()}">
+			<!-- Check for NDepend installation -->
+			<if test="${not file::exists(ndepend.executable)}">
+				<echo level="Warning" message="NDepend installation not found at '${ndepend.executable}'. Please install NDepend! Target canceled." />
+			</if>
+			<if test="${file::exists(ndepend.executable)}">
+				<call target="runNdepend" cascade="false" />
+			</if>
+
+			<!-- Run FxCop -->
+			<call target="runFxCop" cascade="false" />
+		</if>
+	</target>
+
+	<target name="runGendarme" depends="build" description="Analyze the compiled assemblies with Mono's Gendarme">
+		<loadtasks assembly="${nauckit.nant.assembly}" />
+
+		<if test="${codemetrics.output.type == 'LogFile'}">
+			<property name="gendarme.output.file" value="gendarme-result.log" />
+		</if>
+
+		<if test="${codemetrics.output.type == 'XmlFile'}">
+			<property name="gendarme.output.file" value="gendarme-result.xml" />
+		</if>
+
+		<if test="${codemetrics.output.type == 'HtmlFile'}">
+			<property name="gendarme.output.file" value="gendarme-result.html" />
+		</if>
+
+		<gendarme executable="${gendarme.executable}" outputType="${codemetrics.output.type}" outputFile="${path::combine(build.metrics.dir, gendarme.output.file)}"
+              workingDirectory="${build.out.dir}" assemblyListFile="${gendarme.project}" />
+	</target>
+
+	<target name="runNdepend" depends="build" description="Analyze and collect code metrics of the compiled assemblies with NDepend">
+		<loadtasks assembly="${nauckit.nant.assembly}" />
+
+		<ndepend executable="${ndepend.executable}" projectFile="${ndepend.project}" />
+	</target>
+
+	<target name="runFxCop" depends="build" description="Analyze the compiled assemblies with FxCop">
+		<loadtasks assembly="${nauckit.nant.assembly}" />
+
+		<if test="${codemetrics.output.type == 'LogFile'}">
+			<property name="fxcop.output.file" value="fxcop-result.html" />
+			<property name="fxcop.output.xsl" value="true" />
+		</if>
+
+		<if test="${codemetrics.output.type == 'XmlFile'}">
+			<property name="fxcop.output.file" value="fxcop-result.xml" />
+			<property name="fxcop.output.xsl" value="false" />
+		</if>
+
+		<if test="${codemetrics.output.type == 'HtmlFile'}">
+			<property name="fxcop.output.file" value="fxcop-result.html" />
+			<property name="fxcop.output.xsl" value="true" />
+		</if>
+
+		<fxcop executable="${fxcop.executable}" projectFile="${fxcop.project}" outputFile="${path::combine(build.metrics.dir, fxcop.output.file)}"
+					 xslFile="${path::combine(build.metrics.dir, 'fxcop-report.xsl')}" applyXsl="${fxcop.output.xsl} "/>
+	</target>
+
+	<!-- packaging and publishing targets -->
+	<target name="package" depends="clean, build" description="Create and copy the NetReflector distribution to the publish dictionary">
+
+		<call target="packageSource" cascade="false" />
+
+		<call target="packageZipDistribution" cascade="false" />
 		
-  <target name="reporting" depends="compile,fxcop,vil" />
-	
-  <target name="fxcop">
-    <mkdir dir="${build.dir}\fxcop" />
-    <exec program="tools\fxcop\fxcopcmd.exe" 
-      commandline="/file:${build.dir}\NetReflector.dll /o:${build.dir}\fxcop\netreflector-fxcop.xml" failonerror="false"/>	
-  </target>
-	
-  <target name="vil">
-    <mkdir dir="${build.dir}\vil" />
-    <exec program="${vil.executable}" 
-	workingdir="${build.dir}"
-	commandline='/a="${vil.assemblies}" /outxml="vil\NetReflector.results-vil.xml"  /m classes,enumerations,structs,types,LOC,events,impInterfaces,WMC,DIT,CBO,RFC,NOC,constructors,methods,imps,fields,properties /sc=type' 
-	failonerror="false"/>
-  </target>	
+	</target>
+
+	<target name="packageSource" depends="clean, init" description="Creates a zip file containing all sources and tools to build NetReflector">
+		<property name="source.zip.file" value="NetReflector-${assembly.version}.source.zip" />
+
+		<zip zipfile="${path::combine(publish.dir, source.zip.file)}" verbose="${nant.verbosity}">
+			<fileset defaultexcludes="true">
+				<include name="*/**" />
+				<exclude name=".git/" />
+				<exclude name="nant*.log*" />
+				<exclude name="${build.dir}/**" />
+				<exclude name="${build.metrics.dir}/**" />
+				<exclude name="${publish.dir}/**" />
+				<exclude name="${tools.dir}/ncover*/**" />
+				<exclude name="${path::get-directory-name(ndepend.executable)}/**" />
+				<exclude name="${src.dir}/*/bin/**"/>
+				<exclude name="${src.dir}/*/obj/**"/>
+				<exclude name="${src.dir}/_Resharper*/**"/>
+				<exclude name="${src.dir}/**/*.user"/>
+				<exclude name="${src.dir}/**/*.suo"/>
+				<exclude name="${src.dir}/*.sln.cache"/>
+				<exclude name="${src.dir}/*.sln.proj"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="packageZipDistribution" depends="clean, build" description="Creates a zip file containing the NetReflector distribution">
+		<property name="dist.zip.file" value="NetReflector-${assembly.version}.zip" />
+
+		<zip zipfile="${path::combine(publish.dir, dist.zip.file)}" verbose="${nant.verbosity}">
+			<fileset defaultexcludes="true">
+				<include name="LICENSE.txt" />
+			</fileset>
+			<fileset basedir="${build.out.dir}" defaultexcludes="true">
+				<include name="NetReflector.dll" />
+				<include name="NetReflectorDocumenterTask.dll" />
+			</fileset>
+		</zip>
+	</target>
+
 </project>

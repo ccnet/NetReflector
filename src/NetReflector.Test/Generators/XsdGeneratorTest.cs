@@ -18,7 +18,7 @@ namespace Exortech.NetReflector.Test.Generators
 			table.Add(typeof(TestInnerClass));
 
 			XsdGenerator generator = new XsdGenerator(table);
-			XmlSchema schema = generator.Generate();
+			XmlSchema schema = generator.Generate(true);
 //			schema.Write(Console.Out);
 
 			string xmlToValidate = TestClass.GetXml(DateTime.Today);
@@ -39,7 +39,7 @@ namespace Exortech.NetReflector.Test.Generators
 			table.Add(typeof(TestSubClass));
 
 			XsdGenerator generator = new XsdGenerator(table);
-			XmlSchema schema = generator.Generate();
+			XmlSchema schema = generator.Generate(true);
 //			schema.Write(Console.Out);
 
 			string xmlToValidate = TestClass.GetXmlWithSubClass(DateTime.Today);
