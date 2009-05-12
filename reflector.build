@@ -119,6 +119,11 @@
 			<assemblies>
 				<include name="${path::combine(build.dir, 'NetReflector.Test.dll')}" />
 			</assemblies>
+
+			<!-- Hack for current xbuild issues on Mono 2.5 -->
+			<environment>
+				<variable name="MONO_PATH" value="${path::get-full-path('lib')}" if="${framework::get-family(nant.settings.currentframework) == 'mono'}" />
+			</environment>
 		</nunitTest>
 	</target>
 	
