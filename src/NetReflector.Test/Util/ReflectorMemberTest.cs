@@ -31,7 +31,7 @@ namespace Exortech.NetReflector.Test.Util
 			Assert.AreEqual(99, testClass.Count);
 		}
 
-		[Test, ExpectedException(typeof(NetReflectorException))]
+        [Test, ExpectedException(typeof(NetReflectorConverterException))]
 		public void SetValueWithTypeConversionForInconvertibleTypes()
 		{
 			ReflectorMember member = ReflectorMember.Create(GetMember("Count"));
