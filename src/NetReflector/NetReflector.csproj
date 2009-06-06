@@ -110,6 +110,7 @@
     <Compile Include="attributes\IReflectorAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="attributes\ReflectionPreprocessorAttribute.cs" />
     <Compile Include="attributes\ReflectorArrayAttribute.cs">
       <SubType>Code</SubType>
     </Compile>

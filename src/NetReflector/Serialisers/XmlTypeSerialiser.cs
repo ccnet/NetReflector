@@ -82,6 +82,7 @@ namespace Exortech.NetReflector
 		public object Read(XmlNode node, NetReflectorTypeTable table)
 		{
 			object instance = instantiator.Instantiate(type);
+            ReflectionPreprocessorAttribute.Invoke(instance, node);
 			ReadMembers(node, instance, table);
 			return instance;
 		}
