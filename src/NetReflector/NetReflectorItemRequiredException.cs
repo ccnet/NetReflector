@@ -6,6 +6,7 @@ namespace Exortech.NetReflector
     /// <summary>
     /// NetReflector has been unable to find a required item.
     /// </summary>
+	[Serializable]
     public class NetReflectorItemRequiredException
         : Exception
     {

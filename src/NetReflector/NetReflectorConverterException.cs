@@ -6,6 +6,7 @@ namespace Exortech.NetReflector
     /// <summary>
     /// NetReflector has been unable to convert from one type to another.
     /// </summary>
+	[Serializable]
     public class NetReflectorConverterException
         : Exception
     {

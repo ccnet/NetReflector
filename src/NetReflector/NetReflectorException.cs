@@ -8,6 +8,10 @@ namespace Exortech.NetReflector
 	[Serializable]
 	public class NetReflectorException : ApplicationException
 	{
+		public NetReflectorException()
+		{
+		}
+
 		public NetReflectorException(string message) : base(message)
 		{
 		}
@@ -24,6 +28,12 @@ namespace Exortech.NetReflector
 	[Serializable]
 	public class NetReflectorTypeLoadException : NetReflectorException
 	{
+		public NetReflectorTypeLoadException() {}
+
+		public NetReflectorTypeLoadException(string message) : base (message) {}
+
+		public NetReflectorTypeLoadException(string message, Exception innerException) : base(message, innerException) {}
+
 		public NetReflectorTypeLoadException(Assembly loadedAssembly, ReflectionTypeLoadException ex) : base(CreateMessage(loadedAssembly, ex))
 		{
 		}
