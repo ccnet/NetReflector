@@ -94,20 +94,32 @@ namespace Exortech.NetReflector
 
 		private Type GetTargetType(XmlNode childNode, NetReflectorTypeTable table)
 		{
+            // Attempt to find the type
+            XmlAttribute typeAttribute = null;
+            if ((attribute.InstanceTypeKey != null) && (childNode.Attributes != null))
+            {
+                typeAttribute = childNode.Attributes[attribute.InstanceTypeKey];
+
+                // This is a special case - the element may be an abstract element (see XSD) and needs the xsi namespace
+                if ((typeAttribute == null) && (attribute.InstanceTypeKey == "type"))
+                {
+                    typeAttribute = childNode.Attributes["type", "http://www.w3.org/2001/XMLSchema-instance"];
+                }
+            }
+
 			if ((attribute.InstanceTypeKey != null) &&
                 (childNode.Attributes != null) &&
-                (childNode.Attributes[attribute.InstanceTypeKey] != null))
+                (typeAttribute != null))
 			{
-				XmlAttribute instanceTypeAttribute = childNode.Attributes[attribute.InstanceTypeKey];
-				IXmlTypeSerialiser serialiser = table[instanceTypeAttribute.InnerText];
+                IXmlTypeSerialiser serialiser = table[typeAttribute.InnerText];
 				if (serialiser == null)
 				{
 					string msg = @"Type with NetReflector name ""{0}"" does not exist.  The name may be incorrect or the assembly containing the type might not be loaded.
 Xml: {1}";
-					throw new NetReflectorException(string.Format(msg, instanceTypeAttribute.InnerText, childNode.OuterXml));
+                    throw new NetReflectorException(string.Format(msg, typeAttribute.InnerText, childNode.OuterXml));
 				}
 				/// HACK: no way of indicating that attribute is InstanceTypeKey. If this is removed then attribute will generate warning.
-				childNode.Attributes.Remove(instanceTypeAttribute);
+                childNode.Attributes.Remove(typeAttribute);
 				return serialiser.Type;
 			}
 			else if (attribute.InstanceType != null)
