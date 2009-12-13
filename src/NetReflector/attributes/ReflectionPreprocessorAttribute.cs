@@ -16,18 +16,18 @@ namespace Exortech.NetReflector
         /// <summary>
         /// Invokes the preprocessor method.
         /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="method"></param>
-        /// <param name="inputNode"></param>
+        /// <param name="parent">The parent.</param>
+        /// <param name="typeTable">The type table.</param>
+        /// <param name="inputNode">The input node.</param>
         /// <returns></returns>
-        public static XmlNode Invoke(object parent, XmlNode inputNode)
+        public static XmlNode Invoke(object parent, NetReflectorTypeTable typeTable, XmlNode inputNode)
         {
             var result = inputNode;
             foreach (var method in parent.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance))
             {
                 if (method.GetCustomAttributes(typeof(ReflectionPreprocessorAttribute), true).Length > 0)
                 {
-                    result = method.Invoke(parent, new object[]{ inputNode }) as XmlNode;
+                    result = method.Invoke(parent, new object[]{ typeTable, inputNode }) as XmlNode;
                 }
             }
             return result;
