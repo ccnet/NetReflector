@@ -31,6 +31,11 @@ namespace Exortech.NetReflector
 			get { return (IXmlTypeSerialiser) reflectorTypes[reflectorName]; }
 		}
 
+        public bool ContainsType(string reflectorName)
+        {
+            return reflectorTypes.Contains(reflectorName);
+        }
+
 		public void Add(Type type)
 		{
 			ReflectorTypeAttribute attribute = ReflectorTypeAttribute.GetAttribute(type);
