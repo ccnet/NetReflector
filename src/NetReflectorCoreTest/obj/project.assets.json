@@ -5795,11 +5795,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCoreTest\\NetReflectorCoreTest.csproj",
+      "projectUniqueName": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCoreTest\\NetReflectorCoreTest.csproj",
       "projectName": "NetReflectorCoreTest",
-      "projectPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCoreTest\\NetReflectorCoreTest.csproj",
+      "projectPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCoreTest\\NetReflectorCoreTest.csproj",
       "packagesPath": "C:\\Users\\u0127660\\.nuget\\packages\\",
-      "outputPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCoreTest\\obj\\",
+      "outputPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCoreTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5818,11 +5818,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCorePluginTest\\NetReflectorCorePluginTest.csproj": {
-              "projectPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCorePluginTest\\NetReflectorCorePluginTest.csproj"
+            "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCorePluginTest\\NetReflectorCorePluginTest.csproj": {
+              "projectPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCorePluginTest\\NetReflectorCorePluginTest.csproj"
             },
-            "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {
-              "projectPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj"
+            "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {
+              "projectPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj"
             }
           }
         }

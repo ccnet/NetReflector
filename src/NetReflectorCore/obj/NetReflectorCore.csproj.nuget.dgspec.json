@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {}
+    "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {}
   },
   "projects": {
-    "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {
+    "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj",
+        "projectUniqueName": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj",
         "projectName": "NetReflectorCore",
-        "projectPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj",
+        "projectPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\NetReflectorCore.csproj",
         "packagesPath": "C:\\Users\\u0127660\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\NetReflector\\NetReflector\\src\\NetReflectorCore\\obj\\",
+        "outputPath": "C:\\Temp\\netref\\NetReflector\\src\\NetReflectorCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

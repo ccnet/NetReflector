@@ -6,3 +6,11 @@ C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1
 C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.AssemblyInfo.cs
 C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.dll
 C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.pdb
+C:\Temp\netref\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.deps.json
+C:\Temp\netref\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.dll
+C:\Temp\netref\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.pdb
+C:\Temp\netref\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.csproj.CoreCompileInputs.cache
+C:\Temp\netref\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.AssemblyInfoInputs.cache
+C:\Temp\netref\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.AssemblyInfo.cs
+C:\Temp\netref\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.dll
+C:\Temp\netref\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.pdb
