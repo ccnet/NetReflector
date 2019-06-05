@@ -80,39 +80,44 @@ namespace Exortech.NetReflector.Test.Serialisers
 			Assert.AreEqual(@"<![CDATA[<message/>]]><!foo>&quot;", testClass.InnerClass.InnerName);
 		}
 
-		[Test, ExpectedException(typeof(NetReflectorException))]
-		public void ReadSubClassWhereTypeIsInvalid()
-		{
-			string xml = TestClass.GetXml(DateTime.Now, @"<inner classType=""nonexistent""><subzero>-40</subzero><name>&lt;![CDATA[&lt;message/&gt;]]&gt;&lt;!foo&gt;&amp;quot;</name><present>here</present></inner>");
-			NetReflector.Read(xml, table);
-		}
-
-		[Test, ExpectedException(typeof(NetReflectorException))]
-		public void ReadTestInnerClassThatIsMissingRequiredName()
-		{
-			NetReflector.Read(TestInnerClass.GetOuterXmlMissingName(), table);
-		}
-
 		[Test]
+		public void ReadSubClassWhereTypeIsInvalid()
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                string xml = TestClass.GetXml(DateTime.Now, @"<inner classType=""nonexistent""><subzero>-40</subzero><name>&lt;![CDATA[&lt;message/&gt;]]&gt;&lt;!foo&gt;&amp;quot;</name><present>here</present></inner>");
+                NetReflector.Read(xml, table);
+            });
+        }
+
+        [Test]
+		public void ReadTestInnerClassThatIsMissingRequiredName()
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                NetReflector.Read(TestInnerClass.GetOuterXmlMissingName(), table);
+            });
+        }
+
+        [Test]
 		public void ReadShouldNotOverwriteDefaultValues()
 		{
 			TestInnerClass innerClass = (TestInnerClass)NetReflector.Read(TestInnerClass.GetOuterXmlIncludingOnlyRequired());
 			TestInnerClass.AssertEquals(TestInnerClass.CreateMinimal(), innerClass);
 		}
 
-		[Test, Ignore("yet to be implemented")]
-		public void OnWriteCheckRequiredKeyword()
-		{
-		}
 		
-		[Test, ExpectedException(typeof(NetReflectorException))]
-		public void ReadXmlWithMissingTypeOnAPropertyShouldThrowNetReflectorException()
-		{
-			string xml = TestClass.GetXmlWithSubClass(DateTime.Now).Replace(@"classType=""sub""", @"classType=""foo""");
-			NetReflector.Read(xml, table);
-		}
-
 		[Test]
+		public void ReadXmlWithMissingTypeOnAPropertyShouldThrowNetReflectorException()
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                string xml = TestClass.GetXmlWithSubClass(DateTime.Now).Replace(@"classType=""sub""", @"classType=""foo""");
+                NetReflector.Read(xml, table);
+            });
+        }
+
+        [Test]
 		public void ReadXmlWithEnum()
 		{
 			string xml = EnumTestClass.GetXml();

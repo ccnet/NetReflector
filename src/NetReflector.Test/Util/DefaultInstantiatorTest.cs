@@ -30,10 +30,13 @@ namespace Exortech.NetReflector.Test.Util
 			Assert.IsNotNull(testClass);
 		}
 		
-		[Test, ExpectedException(typeof(NetReflectorException))]
+		[Test]
 		public void CreateInstanceWithUnknownType()
-		{
-			instantiator.Instantiate(typeof(string));
-		}
-	}
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                instantiator.Instantiate(typeof(string));
+            });
+        }
+    }
 }

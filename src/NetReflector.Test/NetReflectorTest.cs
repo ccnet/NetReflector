@@ -10,61 +10,88 @@ namespace Exortech.NetReflector.Test
 	{
 		private NetReflectorTypeTable table = NetReflectorTypeTable.CreateDefault();
 
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void WriteWithNullTextWriter()
-		{
-			NetReflector.Write((TextWriter)null, "foo");
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void WriteWithNullXmlWriter()
-		{
-			NetReflector.Write((XmlWriter)null, "foo");
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void WriteWithNullTarget()
-		{
-			NetReflector.Write(null);
-		}
-
-		[Test, ExpectedException(typeof(NetReflectorException))]
-		public void WriteWithUnknownType()
-		{
-			NetReflector.Write("string");
-		}
-
-		[Test, ExpectedException(typeof(NetReflectorException))]
-		public void ReadXmlWhereRootNodeDoesNotMatchReflectorType()
-		{
-			NetReflector.Read("<foo/>", table);
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void ReadNullXmlString()
-		{
-			NetReflector.Read((string)null, table);
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void ReadNullTextReader()
-		{
-			NetReflector.Read((TextReader)null, table);
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void ReadNullXmlReader()
-		{
-			NetReflector.Read((XmlReader)null, table);
-		}
-
-		[Test, ExpectedException(typeof(ArgumentNullException))]
-		public void ReadNullXmlNode()
-		{
-			NetReflector.Read((XmlNode)null, table);
-		}
-
 		[Test]
+		public void WriteWithNullTextWriter()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Write((TextWriter)null, "foo");
+            });
+        }
+
+        [Test]
+		public void WriteWithNullXmlWriter()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Write((XmlWriter)null, "foo");
+            });
+        }
+
+        [Test]
+		public void WriteWithNullTarget()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Write(null);
+            });
+        }
+
+        [Test]
+		public void WriteWithUnknownType()
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                NetReflector.Write("string");
+            });
+        }
+
+        [Test]
+		public void ReadXmlWhereRootNodeDoesNotMatchReflectorType()
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                NetReflector.Read("<foo/>", table);
+            });
+        }
+
+        [Test]
+		public void ReadNullXmlString()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Read((string)null, table);
+            });
+        }
+
+        [Test]
+		public void ReadNullTextReader()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Read((TextReader)null, table);
+            });
+        }
+
+        [Test]
+		public void ReadNullXmlReader()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Read((XmlReader)null, table);
+            });
+        }
+
+        [Test]
+		public void ReadNullXmlNode()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                NetReflector.Read((XmlNode)null, table);
+            });
+        }
+
+        [Test]
 		public void ReadNullReflectorTypeTable()
 		{
 			NetReflector.Read(@"<inner name=""foo"" />");

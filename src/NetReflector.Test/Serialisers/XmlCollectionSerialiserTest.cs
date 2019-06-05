@@ -29,14 +29,6 @@ namespace Exortech.NetReflector.Test.Serialisers
 			Assert.AreEqual(CollectionTestClass.GetXmlWithMissingNullElements(), xml);
 		}
 
-		[Test, Ignore("needed?")]
-		public void WriteClassThatIsNotSerializable()
-		{
-			DateTime now = DateTime.Now;
-			string xml = NetReflector.Write(TestClass.Create(now));
-			Assert.AreEqual(TestClass.GetXml(now), xml);
-		}
-
 		[Test]
 		public void ReadCollectionTestClass()
 		{

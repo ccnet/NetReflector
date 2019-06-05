@@ -1,3 +1,4 @@
 /Build
 /Publish
 /nant-*.log*
+/src/.vs/NetReflector/v16

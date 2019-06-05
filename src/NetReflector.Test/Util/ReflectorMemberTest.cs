@@ -31,15 +31,18 @@ namespace Exortech.NetReflector.Test.Util
 			Assert.AreEqual(99, testClass.Count);
 		}
 
-        [Test, ExpectedException(typeof(NetReflectorConverterException))]
+        [Test]
 		public void SetValueWithTypeConversionForInconvertibleTypes()
-		{
-			ReflectorMember member = ReflectorMember.Create(GetMember("Count"));
-			TestClass testClass = new TestClass();
-			member.SetValue(testClass, "inconvertible");
-		}
+        {
+            Assert.Throws<NetReflectorConverterException>(() =>
+            {
+                ReflectorMember member = ReflectorMember.Create(GetMember("Count"));
+                TestClass testClass = new TestClass();
+                member.SetValue(testClass, "inconvertible");
+            });
+        }
 
-		[Test]
+        [Test]
 		public void SetValueOfSubClass()
 		{
 			ReflectorMember member = ReflectorMember.Create(GetMember("InnerClass"));
@@ -58,24 +61,30 @@ namespace Exortech.NetReflector.Test.Util
 			Assert.IsNull(testClass.InnerClass);
 		}
 
-		[Test, ExpectedException(typeof(NetReflectorException))]
+		[Test]
 		public void SettingValueThrowsException()
-		{
-			ReflectorMember member = ReflectorMember.Create(typeof(ExceptionTestClass).GetProperty("ExceptionProperty"));
-			ExceptionTestClass testClass = new ExceptionTestClass();
-			member.SetValue(testClass, null);
-		}
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                ReflectorMember member = ReflectorMember.Create(typeof(ExceptionTestClass).GetProperty("ExceptionProperty"));
+                ExceptionTestClass testClass = new ExceptionTestClass();
+                member.SetValue(testClass, null);
+            });
+        }
 
-		[Test, ExpectedException(typeof(NetReflectorException))]
+        [Test]
 		public void SetValueWhenNoSet()
-		{
-			PropertyInfo readonlyNameProperty = typeof(ReadOnlMemberClass).GetProperty("ReadOnlyName");
-			ReflectorMember member = ReflectorMember.Create(readonlyNameProperty);
-			ReadOnlMemberClass testClass = new ReadOnlMemberClass();
-			member.SetValue(testClass, "Hello");
-		} 
-		
-		class ReadOnlMemberClass : TestClass
+        {
+            Assert.Throws<NetReflectorException>(() =>
+            {
+                PropertyInfo readonlyNameProperty = typeof(ReadOnlMemberClass).GetProperty("ReadOnlyName");
+                ReflectorMember member = ReflectorMember.Create(readonlyNameProperty);
+                ReadOnlMemberClass testClass = new ReadOnlMemberClass();
+                member.SetValue(testClass, "Hello");
+            });
+        }
+
+        class ReadOnlMemberClass : TestClass
 		{		
 			string readonlyname;
 			

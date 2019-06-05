@@ -60,42 +60,37 @@ namespace Exortech.NetReflector.Test
 		public void AddAssemblyFromFilename()
 		{
 			NetReflectorTypeTable table = new NetReflectorTypeTable();
-			table.Add("NetReflectorPlugin.Test.dll");
-			Assert.AreEqual(1, table.Count);
+            var x = TestContext.CurrentContext.TestDirectory;
+
+            //upgrading to nunit 3 changes the default working directory when running from Visual studio
+            //table.Add("NetReflectorPlugin.Test.dll");
+            table.Add(TestContext.CurrentContext.TestDirectory + Path.DirectorySeparatorChar + "NetReflectorPlugin.Test.dll");
+
+            Assert.AreEqual(1, table.Count);
 			Assert.IsNotNull(table["plugin"], "Plugin type not found");
 		}
 
-		[Test, ExpectedException(typeof (FileNotFoundException))]
-		public void LoadReflectorTypesByFilename_UnknownAssembly()
-		{
-			NetReflectorTypeTable table = new NetReflectorTypeTable();
-			table.Add("UnknownAssembly.Test.dll");
-		}
-
 		[Test]
+		public void LoadReflectorTypesByFilename_UnknownAssembly()
+        {
+            Assert.Throws<FileNotFoundException>(() =>
+            {
+                NetReflectorTypeTable table = new NetReflectorTypeTable();
+                table.Add("UnknownAssembly.Test.dll");
+            });
+        }
+
+        [Test]
 		public void LoadReflectorTypesByFilenameFilter()
 		{
 			NetReflectorTypeTable table = new NetReflectorTypeTable();
-			table.Add(Directory.GetCurrentDirectory(), "*Test.dll");
+			table.Add(TestContext.CurrentContext.TestDirectory, "*Test.dll");
 			Assert.AreEqual(NumberOfReflectorTypesInAssembly + 1, table.Count);
 			Assert.IsNotNull(table["plugin"], "Plugin type not found");
 			Assert.IsNotNull(table["array-test"], "Array-test type not found");
 		}
 
-		[Test, ExpectedException(typeof (NetReflectorException))]
-        [Ignore("This test is causing lots of other tests to fail")]
-		public void AddMismatchingTypes()
-		{
-			AssemblyBuilder tempAssembly = CreateTemporaryAssembly();
-			ModuleBuilder moduleBuilder = tempAssembly.DefineDynamicModule("tempModule");
-			CreateTypeWithReflectorTypeAttribute(moduleBuilder, "Foo", "foo");
-			CreateTypeWithReflectorTypeAttribute(moduleBuilder, "Bar", "bar");
-
-			NetReflectorTypeTable table = new NetReflectorTypeTable();
-			table.Add(tempAssembly);
-		}
-
-		[Test]
+        [Test]
 		public void VerifyNetReflectorTypeLoadExceptionMessage()
 		{
 			ReflectionTypeLoadException innerException = new ReflectionTypeLoadException(new Type[] {typeof (TestClass), null}, new Exception[] {new TypeLoadException("Failed to load TestSubClass")});
@@ -116,14 +111,6 @@ namespace Exortech.NetReflector.Test
 			Assert.AreEqual(instantiator, ((XmlTypeSerialiser) table["reflectTest"]).Instantiator);
 		}
 
-
-		private AssemblyBuilder CreateTemporaryAssembly()
-		{
-			AssemblyName assemblyName = new AssemblyName();
-			assemblyName.Name = "myAss";
-			AssemblyBuilder tempAssembly = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
-			return tempAssembly;
-		}
 
 		private TypeBuilder CreateTypeWithReflectorTypeAttribute(ModuleBuilder moduleBuilder, string typeName, string reflectorName)
 		{

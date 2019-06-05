@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflector", "NetReflector\NetReflector.csproj", "{6F47E988-250D-4B42-9278-07F18B3704BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetReflectorTest", "NetReflector.Test\NetReflectorTest.csproj", "{A4C5FB23-D9F7-48B7-9E81-F2EFB90F991E}"
@@ -40,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42BBE1CE-1209-451A-9C8D-DE7DDF5BA2C6}
 	EndGlobalSection
 EndGlobal

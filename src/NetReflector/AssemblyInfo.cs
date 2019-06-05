@@ -11,6 +11,3 @@ using System.Security.Permissions;
 [assembly : CLSCompliant(true)]
 [assembly : ComVisible(false)]
 
-// Permissions
-[assembly : FileIOPermission(SecurityAction.RequestMinimum)]
-[assembly : ReflectionPermission(SecurityAction.RequestMinimum)]

@@ -50,10 +50,5 @@ namespace Exortech.NetReflector.Test.Serialisers
 			ReadTestHashClassContainingElements();
 			Assert.AreEqual(4, instantiator.instantiateCallCount);
 		}
-
-		[Test, Ignore("not done yet")]
-		public void UnspecifiedKeyIsElementName()
-		{
-		}
 	}
 }
