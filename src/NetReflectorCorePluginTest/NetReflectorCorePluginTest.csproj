@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetReflectorCore\NetReflectorCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Nothing.cs" />
+    <Compile Update="Plugin.cs" />
+  </ItemGroup>
+
+</Project>

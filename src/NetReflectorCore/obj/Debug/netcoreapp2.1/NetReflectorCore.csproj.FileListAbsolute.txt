@@ -1,0 +1,8 @@
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.deps.json
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.dll
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\bin\Debug\netcoreapp2.1\NetReflectorCore.pdb
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.csproj.CoreCompileInputs.cache
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.AssemblyInfoInputs.cache
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.AssemblyInfo.cs
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.dll
+C:\Source\NetReflector\NetReflector\src\NetReflectorCore\obj\Debug\netcoreapp2.1\NetReflectorCore.pdb

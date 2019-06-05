@@ -1,0 +1,12 @@
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\bin\Debug\netcoreapp2.1\NetReflectorCorePluginTest.deps.json
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\bin\Debug\netcoreapp2.1\NetReflectorCorePluginTest.dll
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\bin\Debug\netcoreapp2.1\NetReflectorCorePluginTest.pdb
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\bin\Debug\netcoreapp2.1\NetReflectorCore.dll
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\bin\Debug\netcoreapp2.1\NetReflectorCore.pdb
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.csprojAssemblyReference.cache
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.csproj.CoreCompileInputs.cache
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.AssemblyInfoInputs.cache
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.AssemblyInfo.cs
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.csproj.CopyComplete
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.dll
+C:\Source\NetReflector\NetReflector\src\NetReflectorCorePluginTest\obj\Debug\netcoreapp2.1\NetReflectorCorePluginTest.pdb

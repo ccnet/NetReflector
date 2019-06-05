@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="attributes\IReflectorAttribute.cs" />
+    <Compile Update="attributes\ReflectorArrayAttribute.cs" />
+    <Compile Update="attributes\ReflectorCollectionAttribute.cs" />
+    <Compile Update="attributes\ReflectorHashAttribute.cs" />
+    <Compile Update="attributes\ReflectorPropertyAttribute.cs" />
+    <Compile Update="attributes\ReflectorTypeAttribute.cs" />
+    <Compile Update="Generators\XmlDocumentationGenerator.cs" />
+    <Compile Update="Generators\XsdGenerator.cs" />
+    <Compile Update="Generators\XsdTypes.cs" />
+    <Compile Update="InvalidNodeEvent.cs" />
+    <Compile Update="NetReflector.cs" />
+    <Compile Update="NetReflectorException.cs" />
+    <Compile Update="NetReflectorTypeTable.cs" />
+    <Compile Update="Serialisers\DefaultSerialiserFactory.cs" />
+    <Compile Update="Serialisers\ISerialiserFactory.cs" />
+    <Compile Update="Serialisers\IXmlMemberSerialiser.cs" />
+    <Compile Update="Serialisers\IXmlSerialiser.cs" />
+    <Compile Update="Serialisers\IXmlTypeSerialiser.cs" />
+    <Compile Update="Serialisers\XmlArraySerialiser.cs" />
+    <Compile Update="Serialisers\XmlCollectionSerialiser.cs" />
+    <Compile Update="Serialisers\XmlDictionarySerialiser.cs" />
+    <Compile Update="Serialisers\XmlMemberSerialiser.cs" />
+    <Compile Update="Serialisers\XmlTypeSerialiser.cs" />
+    <Compile Update="util\DefaultInstantiator.cs" />
+    <Compile Update="util\IInstantiator.cs" />
+    <Compile Update="util\ReflectionUtil.cs" />
+    <Compile Update="util\ReflectorMember.cs" />
+    <Compile Update="util\ReflectorTypeConverter.cs" />
+    <Compile Update="util\StringUtil.cs" />
+    <Compile Update="util\XmlElementList.cs" />
+    <Compile Update="util\XmlUtil.cs" />
+  </ItemGroup>
+
+</Project>

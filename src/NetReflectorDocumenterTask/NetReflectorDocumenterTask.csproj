@@ -88,11 +88,6 @@
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\NetReflector\NetReflector.csproj">
-      <Name>NetReflector</Name>
-      <Project>{6F47E988-250D-4B42-9278-07F18B3704BE}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">

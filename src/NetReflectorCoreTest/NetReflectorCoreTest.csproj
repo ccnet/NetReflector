@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetReflectorCorePluginTest\NetReflectorCorePluginTest.csproj" />
+    <ProjectReference Include="..\NetReflectorCore\NetReflectorCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Attributes\ReflectorPropertyTest.cs" />
+    <Compile Update="Generators\XmlDocumentationGeneratorTest.cs" />
+    <Compile Update="NetReflectorTest.cs" />
+    <Compile Update="NetReflectorTypeTableTest.cs" />
+    <Compile Update="NetReflectorTypeTableUnusedNodeTest.cs" />
+    <Compile Update="resources\ArrayTestClass.cs" />
+    <Compile Update="resources\CollectionTestClass.cs" />
+    <Compile Update="resources\ElementTestClass.cs" />
+    <Compile Update="resources\EnumTestClass.cs" />
+    <Compile Update="resources\HashTestClass.cs" />
+    <Compile Update="resources\IgnoreNonReflectorTypeTestClass.cs" />
+    <Compile Update="resources\ITestClass.cs" />
+    <Compile Update="resources\TestClass.cs" />
+    <Compile Update="resources\TestInnerClass.cs" />
+    <Compile Update="resources\TestInstantiator.cs" />
+    <Compile Update="resources\TestSubClass.cs" />
+    <Compile Update="resources\XmlDocumentResource.cs" />
+    <Compile Update="Serialisers\DefaultSerialiserFactoryTest.cs" />
+    <Compile Update="Serialisers\XmlArraySerialiserTest.cs" />
+    <Compile Update="Serialisers\XmlCollectionSerialiserTest.cs" />
+    <Compile Update="Serialisers\XmlDictionarySerialiserTest.cs" />
+    <Compile Update="Serialisers\XmlMemberSerialiserTest.cs" />
+    <Compile Update="Serialisers\XmlTypeSerialiserTest.cs" />
+    <Compile Update="Util\DefaultInstantiatorTest.cs" />
+    <Compile Update="Util\ReflectorMemberTest.cs" />
+    <Compile Update="Util\XmlElementListTest.cs" />
+  </ItemGroup>
+
+</Project>
